@@ -3,8 +3,10 @@ import 'package:app_con_bbdd_local/componentes/pagina_registro.dart';
 import 'package:flutter/material.dart';
 
 class CbarraNavegacion extends StatelessWidget {
-  const CbarraNavegacion({
+  final String textoBenviguda;
+  CbarraNavegacion({
     super.key,
+    this.textoBenviguda = "Hola, tienes q registrate para poder iniciar sesion",
   });
 
   @override
@@ -24,7 +26,7 @@ class CbarraNavegacion extends StatelessWidget {
                   height: 40,
                 ),
                 Icon(
-                  Icons.logout_outlined,
+                  Icons.account_circle,
                   size: 110,
                   color: Colors.deepOrange[300],
                 ),
@@ -80,9 +82,8 @@ class CbarraNavegacion extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PaginaInicioSesion(
-                          controller_nom: controller_nom,
-                          controller_contrasenya: controller_contrasenya,
+                        builder: (context) => const PaginaInicioSesion(
+                         
                         ),
                       ),
                     );
@@ -117,8 +118,8 @@ class CbarraNavegacion extends StatelessWidget {
           ),
           title: const Text("Pagina para Logearte"),
         ),
-        body: const Center(
-          child: Text(""),
+        body: Center(
+          child: Text(textoBenviguda),
         ),
         backgroundColor: Colors.deepPurpleAccent[100],
       ),

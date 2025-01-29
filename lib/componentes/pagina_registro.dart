@@ -7,7 +7,6 @@ import 'package:hive/hive.dart';
 class PaginaRegistro extends StatefulWidget {
   final TextEditingController controller_nom;
   final TextEditingController controller_contrasenya;
-  
 
   const PaginaRegistro({
     super.key,
@@ -19,19 +18,28 @@ class PaginaRegistro extends StatefulWidget {
   State<PaginaRegistro> createState() => _PaginaRegistroState();
 }
 
-
-
 class _PaginaRegistroState extends State<PaginaRegistro> {
   final Box _boxHive = Hive.box("box_login");
   Bbdd db = Bbdd();
 
-  void registrarte(BuildContext context){
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => PaginaInicioSesion(controller_nom: widget.controller_nom, controller_contrasenya: widget.controller_contrasenya,),
-      ),
-    );
+  void registrarte(BuildContext context) {
+    if (widget.controller_nom.text == "" || widget.controller_contrasenya.text == "") {
+      print("Tienes que rellenar los campos");
+    } else {
+      db.tasques_llista.add({
+        "usuario": widget.controller_nom.text,
+        "contraseña": widget.controller_contrasenya.text,
+      });
+      db.actualizarDades();
+      widget.controller_nom.clear();
+      widget.controller_contrasenya.clear();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PaginaInicioSesion(),
+        ),
+      );
+    }
   }
 
   @override
@@ -47,15 +55,7 @@ class _PaginaRegistroState extends State<PaginaRegistro> {
     super.initState();
   }
 
-  void accioGuardar() {
-    setState(() {
-      db.tasques_llista.add({
-        "usuario": "Pol",
-        "password": "1234",
-      });
-    });
-    db.actualizarDades();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {

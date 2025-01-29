@@ -8,8 +8,8 @@ class Bbdd {
   void crearDadesExemple() {
     tasques_llista = [
       {
-        "usuario": "Pol",
-        "password": "1234",
+        "usuario": "",
+        "password": "",
       },
     ];
   }
