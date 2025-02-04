@@ -14,7 +14,9 @@ class PaginaInicioSesion extends StatelessWidget {
   void iniciar_sesion(
       BuildContext context,
       TextEditingController controller_nom,
-      TextEditingController controller_contrasenya) {
+      TextEditingController controller_contrasenya,
+      
+      ) {
     //final Box _boxDeLaHive = Hive.box("box_login");
     Bbdd db = Bbdd();
     db.carregarDades();
@@ -26,8 +28,8 @@ class PaginaInicioSesion extends StatelessWidget {
       for (int i = 0; i < db.tasques_llista.length; i++) {
         
         if (db.tasques_llista[i]["usuario"]== controller_nom.text && db.tasques_llista[i]["contraseña"] == controller_contrasenya.text) {
-          print("Hola," + controller_nom.text + " " + "has iniciado sesion correctamente");
-          String textBenviguda = "Hola," + controller_nom.text +  " " + "has iniciado sesion correctamente";
+          print("Hola," + " " + controller_nom.text + " " + "has iniciado sesion correctamente");
+          String textBenviguda = "Hola," + " " + controller_nom.text +  " " + "has iniciado sesion correctamente";
           controller_nom.clear();
           controller_contrasenya.clear();
           Navigator.push(

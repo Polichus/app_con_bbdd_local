@@ -6,7 +6,8 @@ class CbarraNavegacion extends StatelessWidget {
   final String textoBenviguda;
   CbarraNavegacion({
     super.key,
-    this.textoBenviguda = "Hola, tienes q registrate para poder iniciar sesion",
+    this.textoBenviguda =
+        "Hola, tienes que registrate para poder iniciar sesion",
   });
 
   @override
@@ -51,17 +52,17 @@ class CbarraNavegacion extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                      context, 
+                      context,
                       MaterialPageRoute(
                         builder: (context) => PaginaRegistro(
-                          controller_nom: controller_nom, 
+                          controller_nom: controller_nom,
                           controller_contrasenya: controller_contrasenya,
                         ),
                       ),
                     );
                   },
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,  
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Registrarte",
@@ -77,14 +78,11 @@ class CbarraNavegacion extends StatelessWidget {
                   height: 20,
                 ),
                 GestureDetector(
-                  
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PaginaInicioSesion(
-                         
-                        ),
+                        builder: (context) => const PaginaInicioSesion(),
                       ),
                     );
                   },
@@ -119,7 +117,12 @@ class CbarraNavegacion extends StatelessWidget {
           title: const Text("Pagina para Logearte"),
         ),
         body: Center(
-          child: Text(textoBenviguda),
+          child: Text(
+            textoBenviguda,
+            style: TextStyle(
+              fontSize: 25,
+            ),
+          ),
         ),
         backgroundColor: Colors.deepPurpleAccent[100],
       ),

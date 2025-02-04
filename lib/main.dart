@@ -24,3 +24,5 @@ class MainApp extends StatelessWidget {
     );
   }
 }
+//flutter run -d chrome --web-port 53123 //Esto es para que no cambie de puerto
+
