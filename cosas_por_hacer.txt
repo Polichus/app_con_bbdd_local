@@ -1,0 +1,2 @@
+Poner boton para volver atras en registro
+Que no se pueda registrar un usuario y contraseña que ya exista
